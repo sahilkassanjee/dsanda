@@ -41,6 +41,15 @@ console.log(obj1, obj2)
 //     }
 // }
 
+
+class Node {
+    constructor(value){
+        this.value = value;
+        this.next = null
+    }
+}
+
+
 class LinkedList {
     constructor(value) {
         this.head = {
@@ -53,13 +62,19 @@ class LinkedList {
     }
 
         append(value){
-            const newNode = {
-                    value: value,
-                    next: null
-            }
+           const newNode = new Node(value)
 
             this.tail.next = newNode
             this.tail = newNode
+            this.length++
+            return this
+        }
+
+        prepend(value){
+            const newNode = new Node(value)
+
+            newNode.next = this.head
+            this.head= newNode
             this.length++
             return this
         }
@@ -72,4 +87,7 @@ console.log(myLinkedList)
 
 
 myLinkedList.append(32)
+console.log(myLinkedList)
+
+myLinkedList.prepend(1)
 console.log(myLinkedList)
