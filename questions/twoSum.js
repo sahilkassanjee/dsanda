@@ -11,8 +11,8 @@ const twoSum = (arr, targ) =>{
         let needed = target- current
         index2 = set[needed]
 
-        if(index2 !=null){
-            return [index2, i]
+        if(index2 !=null){ //do not use !==
+            return [index2, i] //order doesn't matter
         }
 
         set[current] = i
